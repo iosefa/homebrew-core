@@ -1,8 +1,8 @@
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
-  url "https://github.com/dimitri/pgloader/archive/v3.2.2.tar.gz"
-  sha256 "5fe5c115e277a9dd616b1077f89bffdf978bc6983ce62d99af9a218142c39e40"
+  url "https://github.com/dimitri/pgloader/archive/v3.3.0.50.tar.gz"
+  sha256 "c2803c3f7ef642f9cfad0acb849bd154e636e1168866d909eee9bbd7047874d9"
   head "https://github.com/dimitri/pgloader.git"
 
   bottle do
@@ -323,10 +323,10 @@ class Pgloader < Formula
     socket_dir = Pathname.new(socket_dir)
     mkdir_p socket_dir
 
-    postgres_command = [
-      "postgres",
-      "--listen_addresses=",
-      "--unix_socket_directories=#{socket_dir}"
+    postgres_command = %W[
+      postgres
+      --listen_addresses=
+      --unix_socket_directories=#{socket_dir}
     ]
 
     IO.popen(postgres_command * " ") do |postgres|
