@@ -11,13 +11,13 @@ class Pgloader < Formula
     sha256 "a0f2366fad76983674ef1f086544bd8d329cf1e7bd6fb1b713bc56cb6cd0fff4" => :mavericks
   end
 
+  depends_on "buildapp" => :build
   depends_on "sbcl"
   depends_on "freetds"
-  depends_on "buildapp" => :build
   depends_on :postgresql => :recommended
 
   # Resource stanzas are generated automatically by quicklisp-roundup.
-  # See: https://github.com/benesch/quicklisp-homebrew-roundup
+  # See https://github.com/benesch/quicklisp-homebrew-roundup
 
   resource "alexandria" do
     url "https://beta.quicklisp.org/archive/alexandria/2015-05-05/alexandria-20150505-git.tgz"
@@ -305,8 +305,8 @@ class Pgloader < Formula
   end
 
   def install
-    resources.each do |resource|
-      resource.stage buildpath/"lib"/resource.name
+    resources.each do |r|
+      r.stage buildpath/"lib"/r.name
     end
 
     ENV["CL_SOURCE_REGISTRY"] = "#{buildpath}/lib//:#{buildpath}//"
@@ -321,7 +321,7 @@ class Pgloader < Formula
     require "timeout"
 
     socket_dir = Pathname.new(socket_dir)
-    mkdir_p socket_dir
+    socket_dir.mkpath
 
     postgres_command = %W[
       postgres
@@ -370,12 +370,12 @@ class Pgloader < Formula
       CA,Canada
     EOS
 
-    system "initdb"
+    system bin/"initdb"
 
     launch_postgres(ENV["PGHOST"]) do
-      system "createdb"
-      system "pgloader", testpath/"test.load"
-      assert_equal "6", shell_output("psql -Atc 'SELECT COUNT(*) FROM csv'").strip
+      system bin/"createdb"
+      system bin/"pgloader", "test.load"
+      assert_equal "6", shell_output("#{bin}/psql -Atc 'SELECT COUNT(*) FROM csv'").strip
     end
   end
 end
