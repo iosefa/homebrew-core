@@ -2,8 +2,8 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.2.2",
-    :revision => "7a7e30b80a9ee444e5e67fd1839422e201a1b328"
+    :tag => "v0.2.3",
+    :revision => "45426155af2998e9cf8a5eca12158fcf4d1acfd3"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
