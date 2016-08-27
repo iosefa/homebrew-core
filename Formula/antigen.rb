@@ -8,19 +8,19 @@ class Antigen < Formula
   bottle :unneeded
 
   def install
-    share.install "antigen.zsh"
+    pkgshare.install "antigen.zsh"
   end
 
   def caveats; <<-EOS.undent
     To activate antigen, add the following to your ~/.zshrc:
 
-      source $(brew --prefix)/share/antigen.zsh
+      source $(brew --prefix)/share/antigen/antigen.zsh
 
     EOS
   end
 
   test do
-    (testpath/".zshrc").write "source `brew --prefix`/share/antigen.zsh"
-    system "/bin/zsh", "--login", "-i", "-c", "antigen help"
+    (testpath/".zshrc").write "source `brew --prefix`/share/antigen/antigen.zsh\n"
+    system "zsh", "--login", "-i", "-c", "antigen help"
   end
 end
