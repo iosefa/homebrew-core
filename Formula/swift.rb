@@ -50,7 +50,7 @@ class Swift < Formula
 
   # Depends on latest version of Xcode
   # https://github.com/apple/swift#system-requirements
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["8.3", :build]
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
