@@ -34,6 +34,11 @@ class Folly < Formula
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
 
+  patch do
+    url "https://github.com/facebook/folly/pull/568.patch"
+    sha256 "c0104aba1ddfa1639e138e32d2f1210a9e577a74a0e683b5ed6ab92ce1e10510"
+  end
+
   def install
     ENV.cxx11
 
