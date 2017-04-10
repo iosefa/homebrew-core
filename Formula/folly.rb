@@ -35,16 +35,10 @@ class Folly < Formula
   fails_with :gcc => "6"
 
   def install
+    ENV.deparallelize
     ENV.cxx11
 
     cd "folly" do
-      # Fix "typedef redefinition with different types ('uint8_t' (aka 'unsigned
-      # char') vs 'enum clockid_t')"
-      # Reported 9 Mar 2017 https://github.com/facebook/folly/issues/557
-      if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-        inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
-      end
-
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
                             "--disable-dependency-tracking"
