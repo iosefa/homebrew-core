@@ -1,9 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/1.11.5/gdal-1.11.5.tar.gz"
-  sha256 "49f99971182864abed9ac42de10545a92392d88f7dbcfdb11afe449a7eb754fe"
-  revision 2
+  url "http://download.osgeo.org/gdal/2.1.3/gdal-2.1.3.tar.gz"
+  sha256 "ae6a0a0dc6eb45a981a46db27e3dfe16c644fcf04732557e2cb315776974074a"
 
   bottle do
     sha256 "aff01d6c7b092145c820bc2cd55f68e14f7c576c1641f4b725523688757f96dc" => :sierra
@@ -101,8 +100,8 @@ class Gdal < Formula
   end
 
   resource "numpy" do
-    url "https://pypi.python.org/packages/source/n/numpy/numpy-1.9.3.tar.gz"
-    sha256 "c3b74d3b9da4ceb11f66abd21e117da8cf584b63a0efbd01a9b7e91b693fbbd6"
+    url "https://files.pythonhosted.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
+    sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
   end
 
   resource "libkml" do
@@ -244,6 +243,7 @@ class Gdal < Formula
   end
 
   def install
+    ENV["CPPFLAGS"] = "-I#{include}"
     inreplace "frmts/jpeg2000/jpeg2000_vsil_io.cpp",
       "stream->bufbase_ = JAS_CAST(uchar *, buf);",
       "stream->bufbase_ = JAS_CAST(u_char *, buf);"
