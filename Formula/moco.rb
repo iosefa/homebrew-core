@@ -8,8 +8,8 @@ class Moco < Formula
   bottle :unneeded
 
   def install
-    libexec.install "moco-runner-0.11.1-standalone.jar"
-    bin.write_jar_script libexec/"moco-runner-0.11.1-standalone.jar", "moco"
+    libexec.install "moco-runner-#{version}-standalone.jar"
+    bin.write_jar_script libexec/"moco-runner-#{version}-standalone.jar", "moco"
   end
 
   test do
