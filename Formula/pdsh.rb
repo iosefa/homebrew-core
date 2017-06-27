@@ -15,6 +15,11 @@ class Pdsh < Formula
   depends_on "readline"
   depends_on "genders" => :optional
 
+  patch do
+    url "https://github.com/chaos/pdsh/pull/96.patch"
+    sha256 "d1971b1353d9f3ae289f93c205a256a47f2b11aabef1b93b0c5d0d3101d26a55"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
