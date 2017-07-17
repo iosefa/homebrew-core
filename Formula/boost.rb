@@ -15,6 +15,13 @@ class Boost < Formula
       url "https://github.com/boostorg/mpi/commit/f5bdcc1.patch?full_index=1"
       sha256 "e3765f6fe04e50089a315f20be392c73834b06274ef6624a4b91464a7409c010"
     end
+
+    # fix error: no member named 'make_array' in namespace 'boost::serialization'
+    # https://svn.boost.org/trac/boost/ticket/12978
+    patch :p2 do
+      url "https://github.com/boostorg/serialization/commit/1d86261581230e2dc5d617a9b16287d326f3e229.diff?full_index=1"
+      sha256 "56620635277eccbb20d970d9a1cdd803b9bb18790f108bd225594ff9d2d9e8bd"
+    end
   end
 
   bottle do
@@ -22,6 +29,12 @@ class Boost < Formula
     sha256 "94c29d2d149a6383fa4050e7cb478e3dcae66895d78b0a0492d8fff63dd73a14" => :sierra
     sha256 "24ae06f30527b4b2375cc2c375ce1af22e4dc0db04dd65896c80231e46ea0ba8" => :el_capitan
     sha256 "ab391a24436ffb4e32dd580d4b0de42e25f822d985273f16595ee865d7a5d995" => :yosemite
+  end
+
+  devel do
+    url "https://dl.bintray.com/boostorg/beta/1.65.0.beta.1/source/boost_1_65_0_beta1.tar.bz2"
+    version "1.65.0-beta1"
+    sha256 "092676557513e992347d30dd0cd058fb8af2a401e5da4f4413f5b577852d726b"
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
@@ -38,13 +51,6 @@ class Boost < Formula
   end
 
   needs :cxx11 if build.cxx11?
-
-  # fix error: no member named 'make_array' in namespace 'boost::serialization'
-  # https://svn.boost.org/trac/boost/ticket/12978
-  patch :p2 do
-    url "https://github.com/boostorg/serialization/commit/1d86261581230e2dc5d617a9b16287d326f3e229.diff?full_index=1"
-    sha256 "56620635277eccbb20d970d9a1cdd803b9bb18790f108bd225594ff9d2d9e8bd"
-  end
 
   def install
     # Force boost to compile with the desired compiler
