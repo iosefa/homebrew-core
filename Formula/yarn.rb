@@ -3,7 +3,6 @@ class Yarn < Formula
   homepage "https://yarnpkg.com/"
   url "https://yarnpkg.com/downloads/0.27.5/yarn-v0.27.5.tar.gz"
   sha256 "f0f3510246ee74eb660ea06930dcded7b684eac2593aa979a7add84b72517968"
-  head "https://github.com/yarnpkg/yarn.git"
 
   bottle :unneeded
 
