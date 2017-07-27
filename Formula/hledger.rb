@@ -7,7 +7,6 @@ class Hledger < Formula
   homepage "http://hledger.org"
   url "https://hackage.haskell.org/package/hledger-1.3/hledger-1.3.tar.gz"
   sha256 "ade9800e4a3fab47b48c6cdbe432d261f3398f71514eb2c554a14f8f8c542f2d"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
