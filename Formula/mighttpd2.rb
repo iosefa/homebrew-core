@@ -7,7 +7,6 @@ class Mighttpd2 < Formula
   homepage "https://www.mew.org/~kazu/proj/mighttpd/en/"
   url "https://hackage.haskell.org/package/mighttpd2-3.4.1/mighttpd2-3.4.1.tar.gz"
   sha256 "0f24c72662be4a0e3d75956fff53899216e29ac7eb29dae771c7e4eb77bdd8d5"
-  revision 1
 
   bottle do
     sha256 "7f26272fd123a12d54b5cdbf52ede0131885da7e1f9778eb36b6481c6b9e4186" => :sierra
