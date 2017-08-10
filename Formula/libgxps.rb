@@ -1,9 +1,8 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
   homepage "https://live.gnome.org/libgxps"
-  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
-  sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
-  revision 2
+  url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.0.tar.xz"
+  sha256 "412b1343bd31fee41f7204c47514d34c563ae34dafa4cc710897366bd6cd0fae"
 
   bottle do
     cellar :any
@@ -20,38 +19,29 @@ class Libgxps < Formula
     depends_on "gtk-doc" => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "libarchive"
   depends_on "freetype"
+  depends_on "gtk+3"
+  depends_on "jpeg"
   depends_on "libpng"
-  depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "little-cms2" => :recommended
-  depends_on "gtk+" => :optional
+  depends_on "libtiff"
+  depends_on "little-cms2"
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--enable-man",
-      "--prefix=#{prefix}",
-    ]
-
-    args << "--without-libjpeg" if build.without? "jpeg"
-    args << "--without-libtiff" if build.without? "libtiff"
-    args << "--without-liblcms2" if build.without? "lcms2"
-
     if build.head?
+      ENV.delete("PYTHONPATH")
       ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
     end
-    system "make", "install"
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
