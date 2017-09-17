@@ -12,6 +12,8 @@ class Qpdf < Formula
     sha256 "f7059fb9d944230b06ad8ddb34528e4090161ee0a3ddee7068a86046c61d4b04" => :mavericks
   end
 
+  depends_on "pcre"
+
   def install
     # find Homebrew's libpcre
     ENV.append "LDFLAGS", "-L#{Formula["pcre"].opt_lib}"
