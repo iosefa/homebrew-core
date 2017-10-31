@@ -7,8 +7,8 @@ class Smali < Formula
   bottle :unneeded
 
   resource "baksmali-jar" do
-    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.2.1.jar"
-    sha256 "83c672439e9f7211d192273192e1ee496e4e13dd5e6e11e0fa312e2870b48b74"
+    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.2.2.jar"
+    sha256 "cf7484d8c090fedfa9cd35215144ffabda43c30afd35e00b57c1cf53bde4c66f"
   end
 
   resource "baksmali" do
