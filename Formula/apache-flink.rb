@@ -8,12 +8,12 @@ class ApacheFlink < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/bin/flink"]
+    (bin/"flink").write_env_script libexec/"bin/flink", Language::Java.java_home_env("1.8")
   end
 
   test do
