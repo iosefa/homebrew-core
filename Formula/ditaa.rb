@@ -1,8 +1,8 @@
 class Ditaa < Formula
   desc "Convert ASCII diagrams into proper bitmap graphics"
   homepage "https://ditaa.sourceforge.io/"
-  url "https://github.com/stathissideris/ditaa/archive/v0.10.tar.gz"
-  sha256 "82e49065d408cba8b323eea0b7f49899578336d566096c6eb6e2d0a28745d63b"
+  url "https://github.com/stathissideris/ditaa/archive/v0.11.0.tar.gz"
+  sha256 "0cd69b13febd285d90fcdc220e81158aae0cba54c6d6bdfd38d97e708c611ebd"
 
   bottle do
     cellar :any_skip_relocation
