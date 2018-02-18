@@ -12,8 +12,7 @@ class Tomcat < Formula
 
   resource "fulldocs" do
     url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.5/bin/apache-tomcat-9.0.5-fulldocs.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.5/bin/apache-tomcat-9.0.5-fulldocs.tar.gz"
-    sha256 "5bcfeb091fcbc6243929c539019423d7a1bd4b267b61d5c79f932ad5e50029d8"
+    sha256 "485b0f73ac11584edee4f290d7034eb75793d709d5e33c4e2db5355bb5ba9aa9"
   end
 
   def install
