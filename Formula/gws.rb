@@ -19,6 +19,6 @@ class Gws < Formula
     system "git", "init", "project"
     system "#{bin}/gws", "init"
     output = shell_output("#{bin}/gws status")
-    assert_equal "project:\n                              Clean [Local only repository]\n", output
+    assert_equal "project:\n  *                           Clean [Local only repository]\n", output
   end
 end
