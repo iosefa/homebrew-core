@@ -1,6 +1,6 @@
 class TeeClc < Formula
   desc "Microsoft Team Explorer Everywhere command-line Client"
-  homepage "https://java.visualstudio.com/Docs/tools/eclipse"
+  homepage "https://github.com/Microsoft/team-explorer-everywhere"
   url "https://github.com/Microsoft/team-explorer-everywhere/releases/download/14.134.0/TEE-CLC-14.134.0.zip"
   sha256 "af4b7123a09475ff03a3f5662df3de614df2f4acc33df16cdab307b5fb6d7dc7"
 
