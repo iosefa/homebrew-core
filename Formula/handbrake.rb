@@ -22,6 +22,7 @@ class Handbrake < Formula
 
   def install
     # -march=native causes segfaults
+    # Reported 23 May 2018 https://github.com/HandBrake/HandBrake/issues/1351
     ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
     system "./configure", "--prefix=#{prefix}",
