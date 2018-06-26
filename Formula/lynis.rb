@@ -4,11 +4,7 @@ class Lynis < Formula
   url "https://cisofy.com/files/lynis-2.6.5.tar.gz"
   sha256 "9119ed3c11ecd8c470369c6242cc9620d6573fc301d66455a5689c613c31563d"
 
-  bottle do
-    sha256 "a6c0a3fe13084930e312ac705a63b3f3b755150cf6612d2fd392574f93194c00" => :high_sierra
-    sha256 "a6c0a3fe13084930e312ac705a63b3f3b755150cf6612d2fd392574f93194c00" => :sierra
-    sha256 "a6c0a3fe13084930e312ac705a63b3f3b755150cf6612d2fd392574f93194c00" => :el_capitan
-  end
+  bottle :unneeded
 
   def install
     inreplace "lynis" do |s|
