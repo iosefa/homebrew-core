@@ -14,6 +14,7 @@ class Mongrel2 < Formula
     sha256 "dd07092a2384c243fcd8c54ed67f2a728f3da698276540fc1c9b201eb3c5cbbb" => :mavericks
   end
 
+  depends_on "mbedtls"
   depends_on "zeromq"
 
   def install
