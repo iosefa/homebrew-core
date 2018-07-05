@@ -1,6 +1,6 @@
 class Mongrel2 < Formula
   desc "Application, language, and network architecture agnostic web server"
-  homepage "https://mongrel2.org/"
+  homepage "http://mongrel2.org/"
   url "https://github.com/mongrel2/mongrel2/releases/download/v1.12.0/mongrel2-v1.12.0.tar.bz2"
   sha256 "054b87d94f5c2fb5311ad7979276ce12684f72bff476fdf943e1c485723e9f3c"
   head "https://github.com/mongrel2/mongrel2.git", :branch => "develop"
