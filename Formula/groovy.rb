@@ -27,7 +27,7 @@ class Groovy < Formula
     end
 
     libexec.install "bin", "conf", "lib"
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir["#{libexec}/bin/*"] - ["#{libexec}/bin/groovy.ico"]
   end
 
   def caveats
