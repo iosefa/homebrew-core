@@ -32,8 +32,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.33",
-        :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
+        :tag => "10.0.2",
+        :revision => "0020622135540ad8ef835d19175902fd8a2dd31e"
   end
 
   # When upgrading Mono, make sure to use the revision from
