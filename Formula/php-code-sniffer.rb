@@ -7,8 +7,8 @@ class PhpCodeSniffer < Formula
   bottle :unneeded
 
   resource "phpcbf.phar" do
-    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.3.0/phpcbf.phar"
-    sha256 "9a9e93310a4e9de509aa06648e69fc91b8141661abb818aeb421e4fa5f3100aa"
+    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.3.1/phpcbf.phar"
+    sha256 "353ec2717ae043917308de7c0dae4805356129c6df9638e0f7daaf4c3c82e560"
   end
 
   def install
