@@ -10,6 +10,7 @@ class Snownews < Formula
     sha256 "4ba563f80e1a79532136538595e36bd1f802fcc396515cad3dccb5f7dfcd21e2" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "openssl"
 
