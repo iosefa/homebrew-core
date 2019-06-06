@@ -107,15 +107,3 @@ class Proj < Formula
                  `#{bin}/proj +proj=poly +ellps=clrk66 -r #{testpath}/test`
   end
 end
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
