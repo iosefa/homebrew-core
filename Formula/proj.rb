@@ -107,3 +107,4 @@ class Proj < Formula
                  `#{bin}/proj +proj=poly +ellps=clrk66 -r #{testpath}/test`
   end
 end
+
