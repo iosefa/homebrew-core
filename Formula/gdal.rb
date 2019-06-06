@@ -39,25 +39,40 @@ class Gdal < Formula
   depends_on "python"
   depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
-
+  
   depends_on "mysql" => :optional
 
-  if build.with? "complete"
-    depends_on "cfitsio"
-    depends_on "epsilon"
-    depends_on "hdf5"
-    depends_on "jasper"
-    depends_on "json-c"
-    depends_on "libdap"
-    depends_on "libxml2"
-    depends_on "netcdf"
-    depends_on "podofo"
-    depends_on "poppler"
-    depends_on "unixodbc" # macOS version is not complete enough
-    depends_on "webp"
-    depends_on "xerces-c"
-    depends_on "xz" # get liblzma compression algorithm library from XZutils
-  end
+  depends_on "cfitsio"
+  depends_on "epsilon"
+  depends_on "hdf5"
+  depends_on "jasper"
+  depends_on "json-c"
+  depends_on "libdap"
+  depends_on "libxml2"
+  depends_on "netcdf"
+  depends_on "podofo"
+  depends_on "poppler"
+  depends_on "unixodbc" # macOS version is not complete enough
+  depends_on "webp"
+  depends_on "xerces-c"
+  depends_on "xz" # get liblzma compression algorithm library from XZutils
+  
+#   if build.with? "complete"
+#     depends_on "cfitsio"
+#     depends_on "epsilon"
+#     depends_on "hdf5"
+#     depends_on "jasper"
+#     depends_on "json-c"
+#     depends_on "libdap"
+#     depends_on "libxml2"
+#     depends_on "netcdf"
+#     depends_on "podofo"
+#     depends_on "poppler"
+#     depends_on "unixodbc" # macOS version is not complete enough
+#     depends_on "webp"
+#     depends_on "xerces-c"
+#     depends_on "xz" # get liblzma compression algorithm library from XZutils
+#   end
 
   def install
     args = [
@@ -113,6 +128,11 @@ class Gdal < Formula
     # Optional Homebrew packages supporting additional formats
     supported_backends = %w[liblzma cfitsio hdf5 netcdf jasper xerces odbc
                             dods-root epsilon webp podofo]
+    
+    supported_backends.delete "liblzma"
+      args << "--with-liblzma=yes"
+      args.concat supported_backends.map { |b| "--with-" + b + "=" + HOMEBREW_PREFIX }
+    
     if build.with? "complete"
       supported_backends.delete "liblzma"
       args << "--with-liblzma=yes"
