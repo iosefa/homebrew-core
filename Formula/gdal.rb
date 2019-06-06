@@ -52,7 +52,7 @@ class Gdal < Formula
   depends_on "netcdf"
   depends_on "podofo"
   depends_on "poppler"
-  depends_on "unixodbc" # macOS version is not complete enough
+#   depends_on "unixodbc" # macOS version is not complete enough
   depends_on "webp"
   depends_on "xerces-c"
   depends_on "xz" # get liblzma compression algorithm library from XZutils
